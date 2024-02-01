@@ -1,39 +1,34 @@
 modLoader = "javafml"
 loaderVersion = "[1,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "Apache-2.0"
 
 [[mods]]
-modId = "examplemod"
+modId = "azusa_config"
 version = "${version}"
-displayName = "Example Mod"
-authors = "Me!"
+displayName = "AzusaConfig"
+credits = "QuiltMC"
+authors = "TexTrue, HO-Artisan"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+A library to bring the Quilt Loader's Config system into Fabric/Forge/NeoForge.
 '''
 #logoFile = ""
 
-[[mixins]]
-config = "examplemod.mixins.json"
-
-[[mixins]]
-config = "examplemod-common.mixins.json"
-
-[[dependencies.examplemod]]
+[[dependencies.azusa_config]]
 modId = "neoforge"
 mandatory = true
 versionRange = "[20,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.azusa_config]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.20.2,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.examplemod]]
+[[dependencies.azusa_config]]
 modId = "architectury"
 mandatory = true
 versionRange = "*"

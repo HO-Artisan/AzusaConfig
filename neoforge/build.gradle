@@ -1,5 +1,5 @@
 plugins {
-    id "com.github.johnrengelman.shadow" version "7.1.2"
+    id "com.github.johnrengelman.shadow" version "8.+"
 }
 
 architectury {
@@ -7,12 +7,8 @@ architectury {
     neoForge()
 }
 
-loom {
-    accessWidenerPath = project(":common").loom.accessWidenerPath
-}
-
 repositories {
-    maven { url "https://maven.neoforged.net/releases/" }
+    maven { url = "https://maven.neoforged.net/releases/" }
 }
 
 configurations {
@@ -25,8 +21,9 @@ configurations {
 
 dependencies {
     neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
-    // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
+
+    implementation(shadowCommon("org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"))
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
@@ -43,6 +40,8 @@ processResources {
 shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
+
+    relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
