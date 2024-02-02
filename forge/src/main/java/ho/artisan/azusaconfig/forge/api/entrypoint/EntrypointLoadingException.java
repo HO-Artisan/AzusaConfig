@@ -21,7 +21,7 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ho.artisan.azusaconfig.neoforge.api.entrypoint;
+package ho.artisan.azusaconfig.forge.api.entrypoint;
 
 public class EntrypointLoadingException extends RuntimeException {
     public EntrypointLoadingException() {

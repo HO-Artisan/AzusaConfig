@@ -4,12 +4,10 @@ plugins {
 
 architectury {
     platformSetupLoomIde()
-    neoForge()
+    forge()
 }
 
-repositories {
-    maven { url = "https://maven.neoforged.net/releases/" }
-}
+project.archivesBaseName = rootProject.archivesBaseName + "-forge"
 
 configurations {
     common
@@ -20,14 +18,14 @@ configurations {
 }
 
 dependencies {
-    neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
-    modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
+    forge "net.minecraftforge:forge:${rootProject.forge_version}"
+    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
     shadowCommon "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
     shadowCommon "org.quiltmc.parsers:json:${project.quiltparsers_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
 processResources {
@@ -73,7 +71,7 @@ components.java {
 
 publishing {
     publications {
-        mavenNeoForge(MavenPublication) {
+        mavenForge(MavenPublication) {
             artifactId = rootProject.archives_base_name + "-" + project.name
             from components.java
         }

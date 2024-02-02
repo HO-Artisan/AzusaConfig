@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[1,)"
+loaderVersion = "[40,)"
 #issueTrackerURL = ""
 license = "Apache-2.0"
 
@@ -15,16 +15,16 @@ A library to bring the Quilt Loader's Config system into Fabric/Forge/NeoForge.
 #logoFile = ""
 
 [[dependencies.azusa_config]]
-modId = "neoforge"
+modId = "forge"
 mandatory = true
-versionRange = "[20,)"
+versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.azusa_config]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.2,)"
+versionRange = "[1.20,)"
 ordering = "NONE"
 side = "BOTH"
 

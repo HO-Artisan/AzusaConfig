@@ -21,12 +21,12 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ho.artisan.azusaconfig.neoforge.impl.entrypoint;
+package ho.artisan.azusaconfig.forge.impl.entrypoint;
 
-import ho.artisan.azusaconfig.neoforge.api.entrypoint.EntrypointContainer;
-import ho.artisan.azusaconfig.neoforge.api.entrypoint.EntrypointLoadingException;
-import net.neoforged.fml.ModList;
-import net.neoforged.neoforgespi.language.IConfigurable;
+import ho.artisan.azusaconfig.forge.api.entrypoint.EntrypointContainer;
+import ho.artisan.azusaconfig.forge.api.entrypoint.EntrypointLoadingException;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.forgespi.language.IConfigurable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;

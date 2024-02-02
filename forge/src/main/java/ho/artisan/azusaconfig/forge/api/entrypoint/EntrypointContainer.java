@@ -21,9 +21,10 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ho.artisan.azusaconfig.neoforge.api.entrypoint;
+package ho.artisan.azusaconfig.forge.api.entrypoint;
 
-import net.neoforged.neoforgespi.locating.IModFile;
+
+import net.minecraftforge.forgespi.locating.IModFile;
 
 /**
  * @param entrypoint entrypoint of the container
