@@ -23,7 +23,8 @@ dependencies {
     neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
 
-    implementation(shadowCommon("org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"))
+    shadowCommon "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
+    shadowCommon "org.quiltmc.parsers:json:${project.quiltparsers_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
@@ -42,6 +43,7 @@ shadowJar {
     exclude "architectury.common.json"
 
     relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
+    relocate "org.quiltmc.parsers", "${rootProject.maven_group}.shadow.quiltparsers"
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")

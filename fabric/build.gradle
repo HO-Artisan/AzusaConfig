@@ -20,7 +20,10 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
-    implementation(shadowCommon("org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"))
+    shadowCommon "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
+    shadowCommon "org.quiltmc.parsers:json:${project.quiltparsers_version}"
+    shadowCommon "com.electronwill.night-config:core:${rootProject.nightconfig_version}"
+    shadowCommon "com.electronwill.night-config:toml:${rootProject.nightconfig_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
@@ -38,6 +41,8 @@ shadowJar {
     exclude "architectury.common.json"
 
     relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
+    relocate "org.quiltmc.parsers", "${rootProject.maven_group}.shadow.quiltparsers"
+    relocate "com.electronwill.nightconfig", "${rootProject.maven_group}.shadow.nightconfig"
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
