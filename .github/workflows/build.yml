@@ -33,8 +33,8 @@ jobs:
         with:
           name: Artifacts-fabric
           path: ${{ github.workspace }}/fabric/build/libs
-      - name: Upload artifacts (neoforge)
+      - name: Upload artifacts (forge)
         uses: actions/upload-artifact@v3
         with:
-          name: Artifacts-neoforge
-          path: ${{ github.workspace }}/neoforge/build/libs
+          name: Artifacts-forge
+          path: ${{ github.workspace }}/forge/build/libs
