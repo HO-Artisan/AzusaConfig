@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "azusa_config",
+  "id": "azusaconfig",
   "version": "${version}",
   "name": "AzusaConfig",
   "description": "A library to bring the Quilt Loader's Config system into Fabric/Forge/NeoForge.",
@@ -12,6 +12,7 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "Apache-2.0",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

@@ -22,8 +22,8 @@ dependencies {
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
-    shadowCommon "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
-    shadowCommon "org.quiltmc.parsers:json:${project.quiltparsers_version}"
+    include "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
+    include "org.quiltmc.parsers:json:${rootProject.quiltparsers_version}"
     shadowCommon "com.electronwill.night-config:core:${rootProject.nightconfig_version}"
     shadowCommon "com.electronwill.night-config:toml:${rootProject.nightconfig_version}"
 
@@ -42,8 +42,6 @@ processResources {
 shadowJar {
     exclude "architectury.common.json"
 
-    relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
-    relocate "org.quiltmc.parsers", "${rootProject.maven_group}.shadow.quiltparsers"
     relocate "com.electronwill.nightconfig", "${rootProject.maven_group}.shadow.nightconfig"
 
     configurations = [project.configurations.shadowCommon]

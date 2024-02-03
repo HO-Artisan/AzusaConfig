@@ -7,7 +7,7 @@ import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 public class AzusaConfigMod {
-    public static final String MOD_ID = "azusa_config";
+    public static final String MOD_ID = "azusaconfig";
     public static final String MOD_NAME = "AzusaConfig";
 
 

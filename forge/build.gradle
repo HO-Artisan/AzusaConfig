@@ -20,8 +20,8 @@ configurations {
 dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
 
-    shadowCommon "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
-    shadowCommon "org.quiltmc.parsers:json:${project.quiltparsers_version}"
+    include "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
+    include "org.quiltmc.parsers:json:${rootProject.quiltparsers_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
@@ -38,9 +38,6 @@ processResources {
 shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
-
-    relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
-    relocate "org.quiltmc.parsers", "${rootProject.maven_group}.shadow.quiltparsers"
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
