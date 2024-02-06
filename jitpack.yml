@@ -1,5 +1,0 @@
-jdk:
-  - openjdk18
-before_install:
-  - sdk install java 18-open
-  - sdk use java 18-open
