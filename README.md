@@ -1,6 +1,6 @@
 <div align="center">
 
-<img height="200" width="200" src="./icon/400x400-icon.png" alt="AzusaConfig Icon"/>
+<img height="200" width="200" src="https://github.com/HO-Artisan/AzusaConfig/blob/artwork/icon.png" alt="AzusaConfig Icon"/>
 
 # AzusaConfig
 
