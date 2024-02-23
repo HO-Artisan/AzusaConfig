@@ -19,8 +19,6 @@ configurations {
 
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
-    modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
 
     include "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
     include "org.quiltmc.parsers:json:${rootProject.quiltparsers_version}"
