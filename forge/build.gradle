@@ -79,32 +79,20 @@ publishing {
     }
 }
 
-unifiedPublishing {
-    project {
-        displayName = "[Forge] $rootProject.version"
-        releaseType = "alpha"
-        changelog = file("CHANGELOG.md").getText('UTF-8')
-        gameVersions = ["1.20", "1.20.1"]
-        gameLoaders = ["forge"]
-
-        mainPublication remapJar
-        secondaryPublications.builtBy(sourcesJar)
-
-        var CURSEFORGE_TOKEN = project.findProperty("CURSEFORGE_TOKEN") ?: System.getenv("CURSEFORGE_TOKEN")
-        if (CURSEFORGE_TOKEN != null) {
-            curseforge {
-                token = CURSEFORGE_TOKEN
-                id = rootProject.curseforge_id
-            }
-        }
-
-        var MODRINTH_TOKEN = project.findProperty("MODRINTH_TOKEN") ?: System.getenv("MODRINTH_TOKEN")
-        if (MODRINTH_TOKEN != null) {
-            modrinth {
-                token = MODRINTH_TOKEN
-                id = rootProject.modrinth_id
-                version = "$rootProject.version-forge"
-            }
-        }
+publisher {
+    apiKeys {
+        modrinth System.getenv("MODRINTH_TOKEN")
+        curseforge System.getenv("CURSE_TOKEN")
     }
+
+    setCurseID("${project.curseforge_id}")
+    setModrinthID("${project.modrinth_id}")
+    setVersionType("alpha")
+    setChangelog(file("CHANGELOG.md").getText("UTF-8"))
+    setVersion("${project.version}-forge")
+    setDisplayName("[Forge] ${project.version}")
+    setGameVersions("1.20", "1.20.1")
+    setLoaders("forge")
+    setArtifact(remapJar)
+    addAdditionalFile(sourcesJar)
 }

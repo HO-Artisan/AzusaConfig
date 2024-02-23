@@ -7,6 +7,7 @@ license = "Apache-2.0"
 modId = "azusaconfig"
 version = "${version}"
 displayName = "AzusaConfig"
+displayURL = "https://github.com/HO-Artisan/AzusaConfig"
 credits = "QuiltMC"
 authors = "TexTrue, HO-Artisan"
 description = '''
