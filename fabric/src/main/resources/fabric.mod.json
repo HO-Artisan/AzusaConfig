@@ -8,9 +8,10 @@
     "TexTrue, HO-Artisan"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/HO-Artisan",
+    "sources": "https://github.com/HO-Artisan/AzusaConfig"
   },
+  "icon": "icon.png",
   "license": "Apache-2.0",
   "environment": "*",
   "entrypoints": {
@@ -19,8 +20,6 @@
     ]
   },
   "depends": {
-    "fabric": "*",
-    "minecraft": ">=1.20",
-    "architectury": "*"
+    "minecraft": ">=1.20.2"
   }
 }

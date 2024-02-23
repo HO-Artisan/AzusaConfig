@@ -7,12 +7,13 @@ license = "Apache-2.0"
 modId = "azusa_config"
 version = "${version}"
 displayName = "AzusaConfig"
+displayURL = "https://github.com/HO-Artisan/AzusaConfig"
 credits = "QuiltMC"
 authors = "TexTrue, HO-Artisan"
 description = '''
 A library to bring the Quilt Loader's Config system into Fabric/Forge/NeoForge.
 '''
-#logoFile = ""
+logoFile = "icon.png"
 
 [[dependencies.azusa_config]]
 modId = "neoforge"
@@ -26,11 +27,4 @@ modId = "minecraft"
 mandatory = true
 versionRange = "[1.20.2,)"
 ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.azusa_config]]
-modId = "architectury"
-mandatory = true
-versionRange = "*"
-ordering = "AFTER"
 side = "BOTH"

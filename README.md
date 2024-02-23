@@ -15,15 +15,17 @@
 
 ```groovy
 repositories {
-    maven { url "https://jitpack.io" }
+    maven { url "https://api.modrinth.com/maven" }
 }
 
 dependencies {
-    modImplementation "com.github.HO-Artisan:AzusaConfig:Tag"
+    modImplementation "maven.modrinth:azusaconfig:Tag"
 }
 ```
 
 ## License
 This mod under Apache-2.0 License.
+
 Quilt Loader part under Apache-2.0 License.
+
 Forge's Entrypoints part from [TT432/Cardinal-Components-API-Forge](https://github.com/TT432/Cardinal-Components-API-Forge/), under MIT License.
