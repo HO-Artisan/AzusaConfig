@@ -38,8 +38,6 @@ processResources {
 shadowJar {
     exclude "architectury.common.json"
 
-    relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
-    relocate "org.quiltmc.parsers", "${rootProject.maven_group}.shadow.quiltparsers"
     relocate "com.electronwill.nightconfig", "${rootProject.maven_group}.shadow.nightconfig"
 
     configurations = [project.configurations.shadowCommon]
@@ -81,4 +79,22 @@ publishing {
     repositories {
         // Add repositories to publish to here.
     }
+}
+
+publisher {
+    apiKeys {
+        modrinth System.getenv("MODRINTH_TOKEN")
+        curseforge System.getenv("CURSE_TOKEN")
+    }
+
+    setCurseID("${project.curseforge_id}")
+    setModrinthID("${project.modrinth_id}")
+    setVersionType("alpha")
+    setChangelog(file("CHANGELOG.md").getText("UTF-8"))
+    setVersion("${project.version}-fabric")
+    setDisplayName("[Fabric] ${project.version}")
+    setGameVersions("1.20.3", "1.20.4")
+    setLoaders("fabric")
+    setArtifact(remapJar)
+    addAdditionalFile(sourcesJar)
 }

@@ -41,9 +41,6 @@ shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
 
-    relocate "org.quiltmc.config", "${rootProject.maven_group}.shadow.quiltconfig"
-    relocate "org.quiltmc.parsers", "${rootProject.maven_group}.shadow.quiltparsers"
-
     configurations = [project.configurations.shadowCommon]
     archiveClassifier.set("dev-shadow")
 }
@@ -82,4 +79,22 @@ publishing {
     repositories {
         // Add repositories to publish to here.
     }
+}
+
+publisher {
+    apiKeys {
+        modrinth System.getenv("MODRINTH_TOKEN")
+        curseforge System.getenv("CURSE_TOKEN")
+    }
+
+    setCurseID("${project.curseforge_id}")
+    setModrinthID("${project.modrinth_id}")
+    setVersionType("alpha")
+    setChangelog(file("CHANGELOG.md").getText("UTF-8"))
+    setVersion("${project.version}-neoforge")
+    setDisplayName("[NeoForge] ${project.version}")
+    setGameVersions("1.20.3", "1.20.4")
+    setLoaders("neoforge")
+    setArtifact(remapJar)
+    addAdditionalFile(sourcesJar)
 }

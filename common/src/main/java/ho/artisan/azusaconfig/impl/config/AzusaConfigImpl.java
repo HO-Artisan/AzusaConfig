@@ -31,7 +31,7 @@ import org.slf4j.Logger;
 
 public final class AzusaConfigImpl {
     private static ConfigEnvironment ENV;
-    private static final Path configDir = AzusaConfigExpectPlatform.getConfigDirectory();
+    private static final Path CONFIG_DIR = AzusaConfigExpectPlatform.getConfigDirectory();
     private static Logger LOGGER = AzusaConfigMod.LOGGER;
 
     private AzusaConfigImpl() {
@@ -65,13 +65,13 @@ public final class AzusaConfigImpl {
         }
 
         if (defaultConfigExtension == null) {
-            ENV = new ConfigEnvironment(configDir, globalConfigExtension, serializers[0]);
+            ENV = new ConfigEnvironment(CONFIG_DIR, globalConfigExtension, serializers[0]);
 
             for (int i = 1; i < serializers.length; ++i) {
                 ENV.registerSerializer(serializers[i]);
             }
         } else {
-            ENV = new ConfigEnvironment(configDir, globalConfigExtension, serializerMap.get(defaultConfigExtension));
+            ENV = new ConfigEnvironment(CONFIG_DIR, globalConfigExtension, serializerMap.get(defaultConfigExtension));
 
             for (Serializer serializer : serializers) {
                 ENV.registerSerializer(serializer);
