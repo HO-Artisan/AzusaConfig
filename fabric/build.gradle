@@ -20,10 +20,10 @@ configurations {
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
 
-    shadowCommon "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
-    shadowCommon "org.quiltmc.parsers:json:${project.quiltparsers_version}"
-    shadowCommon "com.electronwill.night-config:core:${rootProject.nightconfig_version}"
-    shadowCommon "com.electronwill.night-config:toml:${rootProject.nightconfig_version}"
+    implementation(shadowCommon("org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"))
+    implementation(shadowCommon("org.quiltmc.parsers:json:${rootProject.quiltparsers_version}"))
+    implementation(shadowCommon("org.quiltmc.quilt-config.serializers:toml:${rootProject.quiltconfig_version}"))
+    implementation(shadowCommon("org.quiltmc.quilt-config.serializers:json5:${rootProject.quiltconfig_version}"))
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

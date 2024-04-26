@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    modImplementation "maven.modrinth:azusaconfig:Tag"
+    modImplementation "maven.modrinth:azusaconfig:tag-modloadername"
 }
 ```
 

@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class EntrypointStorage {
     private static boolean init;
     private static final Map<String, List<EntrypointContainer<Object>>> map = new HashMap<>();

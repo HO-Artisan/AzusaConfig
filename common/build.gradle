@@ -8,9 +8,9 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
 
     implementation "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
-    implementation "org.quiltmc.parsers:json:${project.quiltparsers_version}"
-    implementation "com.electronwill.night-config:core:${rootProject.nightconfig_version}"
-    implementation "com.electronwill.night-config:toml:${rootProject.nightconfig_version}"
+    implementation "org.quiltmc.parsers:json:${rootProject.quiltparsers_version}"
+    implementation "org.quiltmc.quilt-config.serializers:toml:${rootProject.quiltconfig_version}"
+    implementation "org.quiltmc.quilt-config.serializers:json5:${rootProject.quiltconfig_version}"
 }
 
 publishing {
