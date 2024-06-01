@@ -21,10 +21,10 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ho.artisan.azusaconfig.forge.impl.entrypoint;
+package ho.artisan.azusaconfig.forge.entrypoint.impl;
 
-import ho.artisan.azusaconfig.forge.api.entrypoint.EntrypointContainer;
-import ho.artisan.azusaconfig.forge.api.entrypoint.EntrypointLoadingException;
+import ho.artisan.azusaconfig.forge.entrypoint.api.EntrypointContainer;
+import ho.artisan.azusaconfig.forge.entrypoint.api.EntrypointLoadingException;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.forgespi.language.IConfigurable;
 

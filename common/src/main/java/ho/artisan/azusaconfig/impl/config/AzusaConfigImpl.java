@@ -21,18 +21,18 @@ import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import com.electronwill.nightconfig.toml.TomlParser;
-import com.electronwill.nightconfig.toml.TomlWriter;
 import ho.artisan.azusaconfig.AzusaConfigExpectPlatform;
 import ho.artisan.azusaconfig.AzusaConfigMod;
 import org.quiltmc.config.api.ConfigEnvironment;
 import org.quiltmc.config.api.Serializer;
+import org.quiltmc.config.api.serializers.Json5Serializer;
+import org.quiltmc.config.api.serializers.TomlSerializer;
 import org.slf4j.Logger;
 
 public final class AzusaConfigImpl {
     private static ConfigEnvironment ENV;
     private static final Path CONFIG_DIR = AzusaConfigExpectPlatform.getConfigDirectory();
-    private static Logger LOGGER = AzusaConfigMod.LOGGER;
+    private static final Logger LOGGER = AzusaConfigMod.LOGGER;
 
     private AzusaConfigImpl() {
     }
@@ -40,8 +40,8 @@ public final class AzusaConfigImpl {
     public static void init() {
         Map<String, Serializer> serializerMap = new LinkedHashMap<>();
 
-        serializerMap.put("toml", new NightConfigSerializer<>("toml", new TomlParser(), new TomlWriter()));
-        serializerMap.put("json5", JsonFamilySerializer.JSON5);
+        serializerMap.put("toml", TomlSerializer.INSTANCE);
+        serializerMap.put("json5", Json5Serializer.INSTANCE);
 
         for (Serializer serializer : AzusaConfigExpectPlatform.getEntrypoints("config_serializer", Serializer.class)) {
             Serializer oldValue = serializerMap.put(serializer.getFileExtension(), serializer);
@@ -51,8 +51,8 @@ public final class AzusaConfigImpl {
             }
         }
 
-        String globalConfigExtension = System.getProperty("nakanoconfig.loader.globalConfigExtension"/*SystemProperties.GLOBAL_CONFIG_EXTENSION*/);
-        String defaultConfigExtension = System.getProperty("nakanoconfig.loader.defaultConfigExtension"/*SystemProperties.DEFAULT_CONFIG_EXTENSION*/);
+        String globalConfigExtension = System.getProperty("azusaconfig.globalConfigExtension");
+        String defaultConfigExtension = System.getProperty("azusaconfig.defaultConfigExtension");
 
         Serializer[] serializers = serializerMap.values().toArray(new Serializer[0]);
 

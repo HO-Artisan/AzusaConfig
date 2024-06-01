@@ -21,15 +21,18 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ho.artisan.azusaconfig.forge.api.entrypoint;
+package ho.artisan.azusaconfig.forge.entrypoint.api;
 
+public class EntrypointLoadingException extends RuntimeException {
+    public EntrypointLoadingException() {
+        super();
+    }
 
-import net.minecraftforge.forgespi.locating.IModFile;
+    public EntrypointLoadingException(String message) {
+        super(message);
+    }
 
-/**
- * @param entrypoint entrypoint of the container
- * @param mod        which mod hold the container
- * @author DustW
- */
-public record EntrypointContainer<T>(T entrypoint, IModFile mod) {
+    public EntrypointLoadingException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

@@ -1,6 +1,6 @@
 package ho.artisan.azusaconfig.forge;
 
-import ho.artisan.azusaconfig.forge.impl.entrypoint.EntrypointStorage;
+import ho.artisan.azusaconfig.forge.entrypoint.impl.EntrypointStorage;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 
