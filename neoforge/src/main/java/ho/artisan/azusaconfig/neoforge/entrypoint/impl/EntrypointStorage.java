@@ -21,10 +21,10 @@
  * OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package ho.artisan.azusaconfig.neoforge.impl.entrypoint;
+package ho.artisan.azusaconfig.neoforge.entrypoint.impl;
 
-import ho.artisan.azusaconfig.neoforge.api.entrypoint.EntrypointContainer;
-import ho.artisan.azusaconfig.neoforge.api.entrypoint.EntrypointLoadingException;
+import ho.artisan.azusaconfig.neoforge.entrypoint.api.EntrypointContainer;
+import ho.artisan.azusaconfig.neoforge.entrypoint.api.EntrypointLoadingException;
 import net.neoforged.fml.ModList;
 import net.neoforged.neoforgespi.language.IConfigurable;
 
@@ -76,10 +76,10 @@ public class EntrypointStorage {
     public static <T> List<EntrypointContainer<T>> getEntrypointContainers(String key, Class<T> type) {
         loadAll();
 
-        return map.computeIfAbsent(key, s -> new ArrayList<>()).stream().map(ec -> {
+        return map.computeIfAbsent(key, s -> new ArrayList<>()).stream().map(entrypointContainer -> {
             try {
-                type.cast(ec.entrypoint());
-                return (EntrypointContainer<T>) ec;
+                type.cast(entrypointContainer.entrypoint());
+                return (EntrypointContainer<T>) entrypointContainer;
             } catch (ClassCastException e) {
                 throw new RuntimeException(e);
             }

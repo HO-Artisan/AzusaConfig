@@ -1,6 +1,6 @@
 package ho.artisan.azusaconfig.neoforge;
 
-import ho.artisan.azusaconfig.neoforge.impl.entrypoint.EntrypointStorage;
+import ho.artisan.azusaconfig.neoforge.entrypoint.impl.EntrypointStorage;
 import net.neoforged.fml.loading.FMLPaths;
 
 import java.nio.file.Path;
