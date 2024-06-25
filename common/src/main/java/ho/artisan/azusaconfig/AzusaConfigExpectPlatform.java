@@ -12,9 +12,9 @@ public class AzusaConfigExpectPlatform {
         throw new AssertionError();
     }
 
-    @ExpectPlatform
-    public static <T> List<T> getEntrypoints(String key, Class<T> type) {
-        // Just throw an error, the content should get replaced at runtime.
-        throw new AssertionError();
-    }
+//    @ExpectPlatform
+//    public static <T> List<T> getEntrypoints(String key, Class<T> type) {
+//        // Just throw an error, the content should get replaced at runtime.
+//        throw new AssertionError();
+//    }
 }

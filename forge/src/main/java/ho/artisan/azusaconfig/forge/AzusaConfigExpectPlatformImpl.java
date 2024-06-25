@@ -1,8 +1,7 @@
 package ho.artisan.azusaconfig.forge;
 
-import ho.artisan.azusaconfig.forge.entrypoint.impl.EntrypointStorage;
+//import ho.artisan.azusaconfig.forge.entrypoint.impl.EntrypointStorage;
 import net.minecraftforge.fml.loading.FMLPaths;
-
 
 import java.nio.file.Path;
 import java.util.List;
@@ -12,7 +11,7 @@ public class AzusaConfigExpectPlatformImpl {
         return FMLPaths.CONFIGDIR.get();
     }
 
-    public static <T> List<T> getEntrypoints(String key, Class<T> type) {
-        return (List<T>) EntrypointStorage.getEntrypointContainers(key, type);
-    }
+//    public static <T> List<T> getEntrypoints(String key, Class<T> type) {
+//        return (List<T>) EntrypointStorage.getEntrypointContainers(key, type);
+//    }
 }
