@@ -10,7 +10,7 @@ public class AzusaConfigExpectPlatformImpl {
         return FabricLoader.getInstance().getConfigDir();
     }
 
-    public static <T> List<T> getEntrypoints(String key, Class<T> type) {
-        return FabricLoader.getInstance().getEntrypoints(key, type);
-    }
+//    public static <T> List<T> getEntrypoints(String key, Class<T> type) {
+//        return FabricLoader.getInstance().getEntrypoints(key, type);
+//    }
 }
