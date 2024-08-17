@@ -21,12 +21,14 @@ import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import dev.architectury.injectables.targets.ArchitecturyTarget;
 import ho.artisan.azusaconfig.AzusaConfigExpectPlatform;
 import ho.artisan.azusaconfig.AzusaConfigMod;
-import org.quiltmc.config.api.ConfigEnvironment;
+
 import org.quiltmc.config.api.Serializer;
 import org.quiltmc.config.api.serializers.Json5Serializer;
 import org.quiltmc.config.api.serializers.TomlSerializer;
+import org.quiltmc.config.implementor_api.ConfigEnvironment;
 import org.slf4j.Logger;
 
 public final class AzusaConfigImpl {
@@ -43,13 +45,15 @@ public final class AzusaConfigImpl {
         serializerMap.put("toml", TomlSerializer.INSTANCE);
         serializerMap.put("json5", Json5Serializer.INSTANCE);
 
-//        for (Serializer serializer : AzusaConfigExpectPlatform.getEntrypoints("config_serializer", Serializer.class)) {
-//            Serializer oldValue = serializerMap.put(serializer.getFileExtension(), serializer);
-//
-//            if (oldValue != null) {
-//                LOGGER.warn(AzusaConfigMod.MARKER, "Replacing {} serializer {} with {}", serializer.getFileExtension(), oldValue.getClass(), serializer.getClass());
-//            }
-//        }
+        if (ArchitecturyTarget.getCurrentTarget().equals("fabric")) {
+            for (Serializer serializer : AzusaConfigExpectPlatform.getEntrypoints("config_serializer", Serializer.class)) {
+                Serializer oldValue = serializerMap.put(serializer.getFileExtension(), serializer);
+
+                if (oldValue != null) {
+                    LOGGER.warn(AzusaConfigMod.MARKER, "Replacing {} serializer {} with {}", serializer.getFileExtension(), oldValue.getClass(), serializer.getClass());
+                }
+            }
+        }
 
         String globalConfigExtension = System.getProperty("azusaconfig.globalConfigExtension");
         String defaultConfigExtension = System.getProperty("azusaconfig.defaultConfigExtension");
