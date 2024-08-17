@@ -66,7 +66,7 @@ publisher {
     setChangelog(file("CHANGELOG.md").getText("UTF-8"))
     setVersion("${project.version}-fabric")
     setDisplayName("[Fabric] ${project.version}")
-    setGameVersions("1.20.3", "1.20.4")
+    setGameVersions("1.21", "1.21.1")
     setLoaders("fabric")
     setArtifact(remapJar)
     addAdditionalFile(sourcesJar)
