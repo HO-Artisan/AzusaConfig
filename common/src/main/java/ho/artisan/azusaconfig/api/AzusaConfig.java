@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package ho.artisan.azusaconfig.api.config.v2;
+package ho.artisan.azusaconfig.api;
 
-import ho.artisan.azusaconfig.impl.config.AzusaConfigImpl;
+import ho.artisan.azusaconfig.impl.AzusaConfigImpl;
 import org.quiltmc.config.api.Config;
 import org.quiltmc.config.api.ReflectiveConfig;
 import org.quiltmc.config.impl.ConfigImpl;

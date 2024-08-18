@@ -1,7 +1,7 @@
 package ho.artisan.azusaconfig.neoforge;
 
 import ho.artisan.azusaconfig.AzusaConfigMod;
-import ho.artisan.azusaconfig.impl.config.AzusaConfigImpl;
+import ho.artisan.azusaconfig.impl.AzusaConfigImpl;
 import net.neoforged.fml.IExtensionPoint;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;

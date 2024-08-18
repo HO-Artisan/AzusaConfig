@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package ho.artisan.azusaconfig.impl.config;
+package ho.artisan.azusaconfig.impl;
 
 import java.nio.file.Path;
 import java.util.LinkedHashMap;
