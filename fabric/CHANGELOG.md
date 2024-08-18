@@ -1,2 +1,2 @@
 ## Change
-- QuiltMC/quilt-loader#403
+- update quilt-config version
