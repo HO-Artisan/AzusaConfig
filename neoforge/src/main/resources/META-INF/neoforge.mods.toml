@@ -18,13 +18,13 @@ logoFile = "icon.png"
 [[dependencies.azusa_config]]
 modId = "neoforge"
 mandatory = true
-versionRange = "[20,)"
+versionRange = "[20.5,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.azusa_config]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.2,)"
+versionRange = "[1.20.5,)"
 ordering = "NONE"
 side = "BOTH"
