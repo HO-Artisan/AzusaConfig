@@ -1,3 +1,2 @@
 ## Changelog
-- fix link in mod info
-- use modpublisher
+- update `quilt-config` version

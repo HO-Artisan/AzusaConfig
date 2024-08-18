@@ -1,42 +1,72 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
-    id "dev.architectury.loom" version "1.5-SNAPSHOT" apply false
-    id "com.hypherionmc.modutils.modpublisher" version "2.0.+" apply false
+    id "dev.architectury.loom" version "1.6-SNAPSHOT" apply false
+    id "com.hypherionmc.modutils.modpublisher" version "2.+" apply false
+    id "com.github.johnrengelman.shadow" version "8.+" apply false
 }
 
 architectury {
     minecraft = rootProject.minecraft_version
 }
 
+allprojects {
+    version = "${rootProject.mod_version}+mc${rootProject.minecraft_version}"
+    group = rootProject.maven_group
+}
+
 subprojects {
     apply plugin: "dev.architectury.loom"
     apply plugin: "com.hypherionmc.modutils.modpublisher"
-
-    dependencies {
-        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
-        mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
-    }
-}
-
-allprojects {
-    apply plugin: "java"
     apply plugin: "architectury-plugin"
     apply plugin: "maven-publish"
 
-    archivesBaseName = rootProject.archives_base_name
-    version = "${rootProject.mod_version}+mc${rootProject.minecraft_version}"
-    group = rootProject.maven_group
+    base.archivesName = "${rootProject.archives_base_name}-${project.name}"
 
     repositories {
         maven { url = "https://maven.quiltmc.org/repository/release/" }
     }
 
-    tasks.withType(JavaCompile) {
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        mappings "net.fabricmc:yarn:${rootProject.yarn_mappings}:v2"
+
+        implementation "org.quiltmc:quilt-config:${rootProject.quiltconfig_version}"
+        implementation "org.quiltmc.parsers:json:${rootProject.quiltparsers_version}"
+        implementation "org.quiltmc.quilt-config.serializers:toml:${rootProject.quiltconfig_version}"
+        implementation "org.quiltmc.quilt-config.serializers:json5:${rootProject.quiltconfig_version}"
+    }
+
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
         options.release = 17
     }
 
     java {
         withSourcesJar()
+
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    // Configure Maven publishing.
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                artifactId = base.archivesName.get()
+                from components.java
+            }
+        }
+
+        // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+        repositories {
+            // Add repositories to publish to here.
+            // Notice: This block does NOT have the same function as the block in the top level.
+            // The repositories here will be used for publishing your artifact, not for
+            // retrieving dependencies.
+        }
     }
 }
