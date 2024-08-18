@@ -8,7 +8,6 @@ import net.neoforged.fml.common.Mod;
 
 @Mod(AzusaConfigMod.MOD_ID)
 public class AzusaConfigModNeoForge {
-
     public AzusaConfigModNeoForge() {
         ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> IExtensionPoint.DisplayTest.IGNORESERVERONLY, (a, b) -> true));
         AzusaConfigImpl.init();
